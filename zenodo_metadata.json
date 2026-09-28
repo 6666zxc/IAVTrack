@@ -1,0 +1,36 @@
+{
+  "title": "<FILL IN: IAVTrack: ... for UAV Tracking>",
+  "upload_type": "software",
+  "description": "Source code, trained model checkpoints and raw tracking results for the paper \"<FILL IN PAPER TITLE>\" submitted to Remote Sensing (MDPI). The archive contains: (1) full training/evaluation code of IAVTrack with all experiment configurations; (2) 12 trained checkpoints for the ablation configurations; (3) raw tracking results of 20 configurations on DTB70 and UAVDT (7119 .txt files). See ZENODO_README.md for the file inventory and reproduction instructions.",
+  "creators": [
+    {
+      "name": "<FILL IN: Family, Given>",
+      "affiliation": "<FILL IN: affiliation>",
+      "orcid": "<FILL IN: 0000-0000-0000-0000>"
+    }
+  ],
+  "license": "mit",
+  "access_right": "open",
+  "keywords": [
+    "visual tracking",
+    "UAV tracking",
+    "vision transformer",
+    "DTB70",
+    "UAVDT",
+    "reproducibility"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "<FILL IN: DOI of the paper, after acceptance>",
+      "resource_type": "publication-article"
+    },
+    {
+      "relation": "isDerivedFrom",
+      "identifier": "https://github.com/wuyou3474/AVTrack",
+      "resource_type": "software"
+    }
+  ],
+  "language": "eng",
+  "notes": "Code is released under the MIT License. Built upon AVTrack (MIT, Copyright (c) 2024 You Wu)."
+}
