@@ -1,12 +1,16 @@
 {
-  "title": "<FILL IN: IAVTrack: ... for UAV Tracking>",
+  "title": "IAVTrack: A single-stream visual tracking method for UAV scenarios with enhanced spatio-temporal and channel discrimination",
   "upload_type": "software",
-  "description": "Source code, trained model checkpoints and raw tracking results for the paper \"<FILL IN PAPER TITLE>\" submitted to Remote Sensing (MDPI). The archive contains: (1) full training/evaluation code of IAVTrack with all experiment configurations; (2) 12 trained checkpoints for the ablation configurations; (3) raw tracking results of 20 configurations on DTB70 and UAVDT (7119 .txt files). See ZENODO_README.md for the file inventory and reproduction instructions.",
+  "description": "Source code, trained model checkpoints and raw tracking results for the paper \"IAVTrack: A single-stream visual tracking method for UAV scenarios with enhanced spatio-temporal and channel discrimination\" submitted to Remote Sensing (MDPI). The archive contains: (1) full training/evaluation code of IAVTrack with all experiment configurations; (2) 12 trained checkpoints for the ablation configurations; (3) raw tracking results of 20 configurations on DTB70 and UAVDT (7119 .txt files). See ZENODO_README.md for the file inventory and reproduction instructions.",
   "creators": [
     {
-      "name": "<FILL IN: Family, Given>",
-      "affiliation": "<FILL IN: affiliation>",
-      "orcid": "<FILL IN: 0000-0000-0000-0000>"
+      "name": "Sun, Tianhang",
+      "affiliation": "School of Automation and Intelligent Sensing, Shanghai Jiao Tong University, Shanghai 200240, China",
+      "orcid": "0009-0007-2554-8506"
+    },
+    {
+      "name": "He, Xiaoqi",
+      "affiliation": "Ningbo Institute of Artificial Intelligence, Shanghai Jiao Tong University, Ningbo, China"
     }
   ],
   "license": "mit",
@@ -15,6 +19,8 @@
     "visual tracking",
     "UAV tracking",
     "vision transformer",
+    "spatio-temporal modeling",
+    "channel discrimination",
     "DTB70",
     "UAVDT",
     "reproducibility"
@@ -28,6 +34,11 @@
     {
       "relation": "isDerivedFrom",
       "identifier": "https://github.com/wuyou3474/AVTrack",
+      "resource_type": "software"
+    },
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/6666zxc/IAVTrack",
       "resource_type": "software"
     }
   ],
