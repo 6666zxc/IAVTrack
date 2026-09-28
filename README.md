@@ -7,6 +7,19 @@ Supplementary material for the manuscript submitted to *Remote Sensing* (MDPI):
 This repository contains the source code, the trained model checkpoints and the raw
 tracking results needed to reproduce every table and figure of the paper.
 
+## Zenodo deposit
+
+The complete supplementary material is archived on Zenodo and citable via a
+persistent DOI:
+
+**https://doi.org/10.5281/zenodo.23007690**
+
+The 1.84 GB checkpoints archive is deposited as a 90-part split archive
+(`IAVTrack-checkpoints.zip.part01` ... `part90`) to stay within the Zenodo
+per-file limits. Download all parts, then follow `REASSEMBLE.md` to rebuild
+`IAVTrack-checkpoints.zip` byte-for-byte (MD5 `07931bcd6d3d6683d4cebfa6e0378525`)
+before unpacking.
+
 ## 1. Files
 
 | File | Size | MD5 | Contents |
@@ -99,5 +112,6 @@ research use; please cite the paper and the original AVTrack work.
 ## 7. Citation
 
 ```
-<FILL IN PAPER CITATION / DOI AFTER ACCEPTANCE>
+    <FILL IN AUTHORS>. IAVTrack: <FILL IN PAPER TITLE>. *Remote Sensing* (MDPI), <YEAR>.
+    Dataset / code: https://doi.org/10.5281/zenodo.23007690
 ```
