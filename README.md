@@ -2,7 +2,15 @@
 
 Supplementary material for the manuscript submitted to *Remote Sensing* (MDPI):
 
-> **&lt;FILL IN PAPER TITLE&gt;**
+> **IAVTrack: A single-stream visual tracking method for UAV scenarios with enhanced
+> spatio-temporal and channel discrimination**
+>
+> Tianhang Sun ^1^ (ORCID [0009-0007-2554-8506](https://orcid.org/0009-0007-2554-8506)), Xiaoqi He ^2,\*^
+>
+> ^1^ School of Automation and Intelligent Sensing, Shanghai Jiao Tong University, Shanghai 200240, China; sth2025@sjtu.edu.cn
+> ^2^ Ningbo Institute of Artificial Intelligence, Shanghai Jiao Tong University, Ningbo, China; hexiaoqi@sjtu-naii.com
+>
+> \* Correspondence: hexiaoqi@sjtu-naii.com
 
 This repository contains the source code, the trained model checkpoints and the raw
 tracking results needed to reproduce every table and figure of the paper.
@@ -112,6 +120,11 @@ research use; please cite the paper and the original AVTrack work.
 ## 7. Citation
 
 ```
-    <FILL IN AUTHORS>. IAVTrack: <FILL IN PAPER TITLE>. *Remote Sensing* (MDPI), <YEAR>.
-    Dataset / code: https://doi.org/10.5281/zenodo.23007690
+Tianhang Sun and Xiaoqi He. IAVTrack: A single-stream visual tracking method for UAV
+scenarios with enhanced spatio-temporal and channel discrimination. *Remote Sensing*
+(MDPI), 2026 (submitted).
+
+Dataset / code: https://doi.org/10.5281/zenodo.23007690
 ```
+
+Volume, pages and the article DOI will be added once the manuscript is accepted.
