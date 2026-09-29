@@ -34,7 +34,7 @@ before unpacking.
 |---|---|---|---|
 | [`IAVTrack-code-v1.0.0.zip`](../../releases/latest) | 1.01 MB | `f64199fdfd5b4cba769c62493e52d10e` | Source code, experiment configs, environment file (280 files) |
 | `IAVTrack-checkpoints.zip` | 1,843.80 MB | `07931bcd6d3d6683d4cebfa6e0378525` | 12 trained model checkpoints (`.pth.tar`) — see [Releases](../../releases/latest) |
-| [`IAVTrack-tracking-results.zip`](IAVTrack-tracking-results.zip) | 15.50 MB | `8bbec99d6ffd03c85ff2691a14d14c76` | Raw tracking results (7119 `.txt` files) |
+| [`IAVTrack-tracking-results.zip`](IAVTrack-tracking-results.zip) | 15.50 MB | `8bbec99d6ffd03c85ff2691a14d14c76` | Raw tracking results (7,054 `.txt` files) |
 | [`checksums.md5`](checksums.md5) | — | — | MD5 checksums of the three archives |
 
 Verify integrity with:
@@ -51,9 +51,19 @@ Full training and evaluation code of IAVTrack. Main entry points:
 # Training
 python tracking/train.py --script avtrack --config <config_name> --save_dir ./output
 
-# Evaluation (DTB70 / UAVDT)
-python tracking/test.py avtrack <config_name> --dataset_name dtb70 uavdt
+# Evaluation - run from the repository root; each script takes no arguments
+python tracking/eval_quick.py         # ablation table, UAVDT + DTB70      (AUC / Prec@20)
+python tracking/eval_dtb70_uav123.py  # combined table, DTB70 + UAV123     (AUC / Prec@20)
+python tracking/eval_got10k.py        # GOT-10k validation                 (AO / SR0.50 / SR0.75)
 ```
+
+All three scripts follow the same protocol (21 overlap thresholds 0.00-1.00 in
+steps of 0.05, trapezoidal AUC plus precision at 20 pixels) and read the
+`.txt` predictions produced by the tracker. The evaluated configurations and
+datasets are declared in the `TRACKER_CONFIGS` and `DATASETS` constants at the
+top of each file, so a single configuration can be selected by editing that
+list. Ground-truth and result paths are configured in
+`lib/test/evaluation/local.py`.
 
 The code is built upon [AVTrack](https://github.com/wuyou3474/AVTrack); the files
 originating from AVTrack are redistributed under the original MIT License
@@ -90,9 +100,15 @@ The backbone is initialized from timm's DeiT-tiny ImageNet-1k weights, which are
 Layout: `tracking_results/avtrack/<config_name>/<dataset_name>/<sequence>.txt`
 
 Each file holds one predicted bounding box per line (`x,y,w,h`) for the
-corresponding frame. The archive covers the DTB70 and UAVDT test sets for all
-20 evaluated configurations, i.e. the raw predictions behind the success /
-precision numbers reported in the ablation tables.
+corresponding frame. The archive contains the raw predictions of all evaluated
+configurations on the DTB70, UAV123, UAVDT and GOT-10k test sets (7,054 `.txt`
+files in total: DTB70 1,960, UAV123 2,214, UAVDT 1,800, GOT-10k 1,080), i.e.
+the numbers behind the success / precision values reported in the ablation
+tables.
+
+Evaluate them with `python tracking/eval_quick.py` (UAVDT + DTB70),
+`python tracking/eval_dtb70_uav123.py` (DTB70 + UAV123) or
+`python tracking/eval_got10k.py` (GOT-10k).
 
 Note: a few configurations were evaluated without a corresponding checkpoint
 being released (`ablation_atc_*`, `ablation_bddr_atc`, `ablation_upd_*`); their
@@ -105,9 +121,14 @@ unzip IAVTrack-code-v1.0.0.zip
 unzip IAVTrack-checkpoints.zip   # -> ./output/checkpoints/...
 unzip IAVTrack-tracking-results.zip
 
-python tracking/test.py avtrack ablation_stage2_msca_bddr_mixed_v2 \
-    --dataset_name dtb70 uavdt
+python tracking/eval_quick.py
 ```
+
+`eval_quick.py` reports the ablation table on UAVDT + DTB70, including the main
+configuration `ablation_stage2_msca_bddr_mixed_v2`; `eval_dtb70_uav123.py`
+produces the combined DTB70 + UAV123 table and `eval_got10k.py` the GOT-10k
+validation numbers. The scripts skip configurations or sequences whose result
+files are absent and print `N/A` instead of aborting.
 
 Re-running the evaluation should reproduce the released results in
 `output/test/tracking_results/`.
